@@ -43,7 +43,26 @@ class MainActivity : AppCompatActivity() {
         button7.setOnClickListener(listener)
         button8.setOnClickListener(listener)
         button9.setOnClickListener(listener)
+        buttonNeg.setOnClickListener { view ->
+            val value = newNumber.text.toString()
+            if (value.isNotEmpty())
+            {
+                newNumber.setText("")
+            }
+            else
+            {
+                try {
+                    var doubleValue = value.toDouble()
+                    doubleValue *= -1
+                    newNumber.setText(doubleValue.toString())
+                }
+                catch (e : java.lang.NumberFormatException)
+                {
+                    newNumber.setText("")
+                }
 
+            }
+        }
         /////////////////////////////////////////////////////
         //      clicklistener for operations               //
         /////////////////////////////////////////////////////
